@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Detector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card w-full max-w-xl mx-auto mt-8">
+            <div class="card-header">
+                <h2 class="card-title">AI Generated Text Detector</h2>
+            </div>
+            <div class="card-content">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">
+                            Enter text
+                        </label>
+                        <textarea id="features" placeholder="Enter text here..." class="input w-full"
+                            rows="5"></textarea>
+                    </div>
+                    <button id="predict-button" class="button w-full" onclick="handleSubmit()">
+                        Predict
+                    </button>
+                    <div id="error-message" class="text-red-500 text-sm mt-2"></div>
+                    <div id="prediction-results" class="mt-4 p-4 bg-gray-50 rounded-lg" style="display: none;">
+                        <h3 class="font-medium mb-2">Result : </h3>
+                        <pre id="prediction-output" class="whitespace-pre-wrap"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
