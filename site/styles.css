@@ -1,19 +1,19 @@
 /* General styles */
 :root {
     font-weight: bold;
-    font-size: 22px;
+    font-size: clamp(16px, 2vw, 22px); /* Responsive font size */
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 50px;
-    padding: 50px;
+    margin: clamp(20px, 5vw, 50px); /* Responsive margins */
+    padding: clamp(20px, 5vw, 50px); /* Responsive padding */
     min-width: 300px;
 }
 
 .container {
-    padding: 20px;
+    padding: clamp(10px, 2vw, 20px);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -26,40 +26,39 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .card-header {
     background-color: #4CAF50;
     color: white;
-    padding: 15px;
+    padding: clamp(10px, 2vw, 15px);
 }
 
 .card-title {
     margin: 0;
+    font-size: clamp(18px, 2.5vw, 24px); /* Responsive title size */
 }
 
 .card-content {
-    padding: 20px;
+    padding: clamp(10px, 3vw, 20px);
 }
 
-.space-y-4>*+* {
-    margin-top: 16px;
+.space-y-4 > * + * {
+    margin-top: clamp(12px, 2vw, 16px);
 }
 
 /* Input and Textarea styles */
 .input {
     width: 100%;
-    padding: 10px;
+    padding: clamp(8px, 1.5vw, 10px);
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     resize: none;
-    font-size: 14px;
-    /* Prevents user resizing */
-    height: 400px;
-    /* Fixed height */
+    font-size: clamp(12px, 1.5vw, 14px);
+    height: clamp(200px, 50vh, 400px); /* Responsive height */
     overflow-y: auto;
-    /* Adds vertical scroll if needed */
 }
 
 .input:focus {
@@ -70,15 +69,17 @@ body {
 /* Button styles */
 .button {
     font-weight: bold;
-    font-size: 14px;
+    font-size: clamp(12px, 1.5vw, 14px);
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
     border: none;
     border-radius: 4px;
     cursor: pointer;
     text-align: center;
     display: inline-block;
+    width: auto;
+    min-width: 120px;
 }
 
 .button:hover {
@@ -88,11 +89,13 @@ body {
 /* Error message */
 .text-red-500 {
     color: #f44336;
+    font-size: clamp(12px, 1.5vw, 14px);
 }
 
 /* Prediction results */
 .bg-gray-50 {
     background-color: white;
+    padding: clamp(10px, 2vw, 20px);
 }
 
 .rounded-lg {
@@ -101,4 +104,36 @@ body {
 
 .whitespace-pre-wrap {
     white-space: pre-wrap;
+    word-break: break-word; /* Prevents text overflow */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .card {
+        margin-bottom: 15px;
+    }
+    
+    .button {
+        width: 100%; /* Full width buttons on mobile */
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .card-header {
+        padding: 10px;
+    }
+    
+    .input {
+        height: 250px; /* Shorter input on mobile */
+    }
 }
